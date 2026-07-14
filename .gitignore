@@ -46,3 +46,5 @@ src-tauri/Cargo.lock
 *.jks
 *.keystore
 upload-keystore.jks.base64
+# Git worktrees
+.worktrees/
