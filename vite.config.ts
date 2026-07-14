@@ -13,6 +13,9 @@ export default defineConfig({
   server: {
     host: true,
     open: true,
+    allowedHosts: [
+      'image-compressor.oopsmemory.com'
+    ]
   },
   preview: {
     host: true,

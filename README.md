@@ -156,6 +156,7 @@ import {
 
 - Node.js version `20+` and `npm` installed on your machine
 - For Tauri development: Rust toolchain installed
+- For Docker: Docker Engine and Docker Compose v2
 
 ### Installation
 
@@ -191,6 +192,56 @@ npm run tauri build # Build desktop application
 # Code Quality
 npm run lint       # Run ESLint
 npm run type-check # Run TypeScript compiler check
+```
+
+### Docker
+
+Run the web app without installing Node locally. Docker covers the Vite frontend only (not Tauri desktop/mobile builds).
+
+**Prerequisites:** Docker Engine and Docker Compose v2.
+
+#### Development (hot reload)
+
+`docker-compose.override.yml` is applied automatically and mounts the source for live updates.
+
+```bash
+docker compose up --build
+```
+
+Open http://localhost:5173
+
+Stop with `Ctrl+C`, or in detached mode:
+
+```bash
+docker compose up --build -d
+docker compose down
+```
+
+#### Production
+
+Serve the production build with Vite preview (override file is not used):
+
+```bash
+docker compose -f docker-compose.yml up --build
+```
+
+Open http://localhost:8080
+
+Detached:
+
+```bash
+docker compose -f docker-compose.yml up --build -d
+docker compose -f docker-compose.yml down
+```
+
+#### Build the image only
+
+```bash
+# Production image
+docker build --target production -t image-compressor:prod .
+
+# Development image
+docker build --target development -t image-compressor:dev .
 ```
 
 ### Development Workflow
