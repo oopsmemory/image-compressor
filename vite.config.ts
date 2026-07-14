@@ -11,7 +11,12 @@ export default defineConfig({
     },
   },
   server: {
+    host: true,
     open: true,
+  },
+  preview: {
+    host: true,
+    port: 4173,
   },
   build: {
     target: "esnext",
