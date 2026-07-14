@@ -1,0 +1,15 @@
+node_modules
+dist
+.git
+.github
+src-tauri
+*.md
+!README.md
+docs
+.vscode
+.idea
+coverage
+.env
+.env.*
+*.log
+.DS_Store
